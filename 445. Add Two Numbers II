@@ -1,0 +1,15 @@
+ def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
+        num1=[]
+        num2=[]
+        while(l1):
+            num1.append(l1.val)
+            l1=l1.next
+        while(l2):
+            num2.append(l2.val)
+            l2=l2.next
+        res=num1+num2
+        dummy = p = ListNode(0)
+        while res:
+            p.next = ListNode(res.pop(0))            
+            p = p.next            
+        return dummy.next
