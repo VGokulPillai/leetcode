@@ -1,0 +1,16 @@
+def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
+        
+        sums = self.getNum(l1) + self.getNum(l2)
+        sums = [int(char) for char in list(str(sums))]
+        dummy = p = ListNode(0)
+        while sums:
+            p.next = ListNode(sums.pop(0))            
+            p = p.next            
+        return dummy.next
+    
+    def getNum(self, node):
+        l = []
+        while node:
+            l.append(str(node.val))
+            node = node.next
+        return int(''.join(l))
