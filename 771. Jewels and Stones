@@ -1,0 +1,11 @@
+class Solution:
+    def numJewelsInStones(self, jewels: str, stones: str) -> int:
+        count=0
+        l1=len(stones)
+        l2=len(jewels)
+        for i in range(l1):
+            for j in range(l2):
+                if(stones[i]==jewels[j]):
+                    count+=1            
+        return count
+        
