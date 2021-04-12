@@ -1,0 +1,29 @@
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def reverseKGroup(self, head: ListNode, k: int) -> ListNode:
+        def reverse(head, k):
+            p = head
+            for i in range(k):
+                if(p):
+                    p = p.next
+                else:
+                    return head
+            pre, curr = head, head.next
+            pre.next = None
+            i = 1
+            while(curr != None and i < k):
+                nex = curr.next
+                curr.next = pre
+                pre, curr = curr, nex
+                i += 1
+            if(curr != None):
+                head.next = reverse(curr, k)
+            return pre
+        if(head):
+            return reverse(head, k)
+        else:
+            return None
