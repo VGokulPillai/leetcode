@@ -1,0 +1,13 @@
+class Solution:
+    def buildArray(self, target: List[int], n: int) -> List[str]:
+        ans = []
+        mov = 0
+        for i in range(1, n+1):
+            ans.append("Push")
+            mov=mov+1
+            if i not in target:
+                ans.append("Pop")
+                mov=mov-1
+            if mov == len(target):
+                break
+        return ans
