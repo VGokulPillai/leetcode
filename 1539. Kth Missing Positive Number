@@ -1,0 +1,15 @@
+class Solution:
+    def findKthPositive(self, arr: List[int], k: int) -> int: 
+        n = max(arr)
+        arr_set = set(arr)
+        miss=[]
+        for i in range(1, n + 1):
+            if i not in arr_set:
+                miss.append(i)
+        if not miss:
+            return arr[len(arr) - 1] + k
+        
+        if k > len(miss):
+            return arr[len(arr) - 1] + (k - len(miss))
+        return miss[k-1]
+        
