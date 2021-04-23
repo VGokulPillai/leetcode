@@ -1,0 +1,25 @@
+class Solution:
+    def countCharacters(self, words: List[str], chars: str) -> int:
+        sums=0
+        counter=0
+        char_set={}
+        for char in chars:
+            if(char not in char_set):
+                char_set[char]=1
+            else:
+                char_set[char]+=1
+        #print(char_set)
+        for word in words:
+            for char in word:
+                #print(word.count(char))
+                if char not in char_set or char_set[char]<word.count(char):
+                    counter=0
+                    break
+                else:
+                    counter=counter+1
+            sums=sums+counter
+            counter=0
+        return sums
+    
+    
+        
