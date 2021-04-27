@@ -1,0 +1,15 @@
+class Solution:
+    def countStudents(self, students: List[int], sandwiches: List[int]) -> int:
+        queue =collections.deque(students)
+        l=len(students)
+        for sand in sandwiches:
+            if(sand in queue):
+                while(queue[0]!=sand):
+                    x=queue.popleft()
+                    queue.append(x)
+                    break
+                while(queue[0]==sand):
+                    l=l-1
+                    print(l)
+                    break
+        return l
