@@ -1,0 +1,19 @@
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def sumRootToLeaf(self, root: TreeNode) -> int:
+        def SumRootleaf(root,sums):
+            if not root:
+                return 0
+            sums=(sums<<1)+root.val
+            print(sums)
+            if(root.left==None and root.right==None):
+                return sums
+            return SumRootleaf(root.right,sums)+SumRootleaf(root.left,sums)
+        return SumRootleaf(root,0)
+        
+        
