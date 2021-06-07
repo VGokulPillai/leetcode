@@ -1,0 +1,12 @@
+if not root: 
+            return 0
+        stack=[]
+        dept = 1
+        stack.append((root,dept))
+        while(stack):
+            node,dept=stack.pop()
+            if(node.children):
+                for childnode in node.children:
+                    stack.append((childnode,dept+1))
+                    
+        return dept
