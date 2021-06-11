@@ -1,0 +1,22 @@
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, val=None, children=None):
+        self.val = val
+        self.children = children
+"""
+
+class Solution:
+    def maxDepth(self, root: 'Node') -> int:
+        if (not root):
+            return 0
+        queue=collections.deque()
+        dept=1
+        queue.append((root,dept))
+        while(queue):
+            node,dept=queue.popleft()
+            if(node.children):
+                for child in node.children:
+                    queue.append((child,dept+1))
+        return dept
+        
